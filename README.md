@@ -1,5 +1,5 @@
 # WeiXinDemo
-微信官方demo 用来自己学习用
+微信官方demo 
 
 基础
   1、基础关键内容 app.js app.json app.wxss 
@@ -15,3 +15,37 @@
   
   
   app.json配置项列表
+  
+    pages 设置页面路径 （必填  类型：String Array）
+    
+    window  设置默认页面的窗口表现  （非必填 类型：Object）
+    
+    tabBar 设置底部 tab 的表现     （非必填 类型：Object）
+    
+    networkTimeout 设置网络超时时间 （非必填 类型：Object）
+    
+    debug 设置是否开启 debug 模式   （非必填 类型：Boolean）
+  例
+  {
+    "pages": [
+      "pages/index/index",
+      "pages/logs/index"
+    ],
+    "window": {
+      "navigationBarTitleText": "Demo"
+    },
+    "tabBar": {
+      "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      }, {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      }]
+    },
+    "networkTimeout": {
+      "request": 10000,
+      "downloadFile": 10000
+    },
+    "debug": true
+  }
