@@ -9,3 +9,38 @@
         
         
 一、数据绑定（ WXML 中的动态数据均来自对应 Page 的 data ）
+
+    简单绑定----数据绑定使用Mustache 语法（双大括号）将变量包起来，可以作用于：
+        1、内容
+            例 ：WXML
+                    1、
+                    <view> {{ message }} </view>
+
+                    2、
+                    组件属性（需要在双引号之内）
+                    <view id="item-{{id}}"> </view>
+
+                    3、
+                    控制属性(需要在双引号之内)
+                    <view wx:if="{{condition}}"> </view>
+                JS
+                    1、
+                    Page({
+                      data: {
+                        message: 'Hello MINA!'
+                      }
+                    })
+
+                    2、
+                    Page({
+                      data: {
+                        id: 0
+                      }
+                    })
+
+                    3、
+                    Page({
+                      data: {
+                        condition: true
+                      }
+                    })
