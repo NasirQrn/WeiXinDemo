@@ -23,6 +23,11 @@
                     3、
                     控制属性(需要在双引号之内)
                     <view wx:if="{{condition}}"> </view>
+
+                    4、
+                    关键字(需要在双引号之内)
+                    <checkbox checked="{{false}}"> </checkbox>
+                    *特别注意：不要直接写 checked="false"，其计算结果是一个字符串，转成 boolean 类型后代表真值。
                 JS
                     1、
                     Page({
@@ -44,3 +49,56 @@
                         condition: true
                       }
                     })
+
+        2、运算----可以在{{}} 内进行简单的运算，支持的有如下几种方式
+
+            三元运算
+            <view hidden="{{flag ? true : false}}"> Hidden </view>  //对于这个view(div)判断 如果flag正确，则true--->该view 隐藏
+
+
+           算数运算
+            <view> {{a + b}} + {{c}} + d </view>
+
+            Page({
+              data: {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+            })
+
+            view中的内容为 3 + 3 + d。
+
+            逻辑判断
+            <view wx:if="{{length > 5}}"> </view> //如果data 中的 length 值大于5 显示，否则隐藏
+
+
+            字符串运算
+            <view>{{"hello" + name}}</view>
+            Page({
+              data:{
+                name: 'MINA'
+              }
+            })
+
+
+            数据路径运算
+            <view>{{object.key}} {{array[0]}}</view>
+            Page({
+              data: {
+                object: {
+                  key: 'Hello '
+                },
+                array: ['MINA']
+              }
+            })
+
+
+            template ???
+
+
+            if vs hidden
+            if      切换消耗大
+            hidden 初始消耗大
+            因此，如果需要频繁切换的情景下，用 hidden 更好，如果在运行时条件不大可能改变则 wx:if 较好。
+
